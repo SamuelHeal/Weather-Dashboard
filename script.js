@@ -7,7 +7,7 @@ var city = ''
 
 
 
-function getAPI(){
+function getCoords(){
     $("#tempBig").text("Temp: ")
     $("#windBig").text("Wind: ")
     $("#humidityBig").text("Humidity: ")
@@ -22,20 +22,26 @@ function getAPI(){
     }
 
     
-    console.log(city)
-    $.ajax({
-        url: 'http://api.positionstack.com/v1/forward',
-        data: {
-          access_key: '735b3d1ca9c3f414da885ec709acec4f',
-          query: city,
-          limit: 1
-        }
-      }).done(function(data) {
-        results = data
-        lat = results.data[0].latitude
-        lon = results.data[0].longitude
+    var CoordURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=b592c479479d908251d90e6fcb35e090'
+
+    fetch(CoordURL)
+    .then(function (response) {
+      if (!response.ok) {
+        throw response.json();
+      }
+
+      return response.json();
+    })
+    .then(function(data){
+        console.log(data)
+        lat = data.coord.lat
+        lon = data.coord.lon
+        console.log(lat)
+        console.log(lon)
         searchAPI()
-      });
+
+    })
+
 }
 
 search.addEventListener("click", function(event){
@@ -43,7 +49,7 @@ search.addEventListener("click", function(event){
     city = document.getElementById("city").value
     $(".weather-heading").text($(".form-input").val())
     $(".previousCity").append("<button class='list' onclick='previousSearch()'>" + $(".form-input").val() + "</button>")
-    getAPI()
+    getCoords()
 })
 
 var bigImage = document.querySelector(".bigImage")
@@ -95,6 +101,8 @@ function searchAPI(){
         }
 
         for (var i = 1; i < 6; i++){
+            console.log(weather)
+            $(".date" + i).text(moment.unix(weather.daily[i].dt).format("DD-MM"))
             $("#" + i).append("<li class='weather-description'>Temp: " + weather.daily[i].temp.max + "°C")
             $("#" + i).append("<li class='weather-description'>Wind: " + weather.daily[i].wind_speed + " km/h")
             $("#" + i).append("<li class='weather-description'>Humidity: " + weather.daily[i].humidity + "%")
@@ -168,7 +176,7 @@ function previousSearch(){
                 
             }
             $(".weather-heading").text(city)
-            getAPI()
+            getCoords()
         })
     })
 

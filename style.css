@@ -182,10 +182,11 @@ box-sizing: border-box;
     background-color: rgb(53, 53, 206);
 }
 
-.date{
+.unix{
     position: relative;
     left: 5px;
     color: white;
+    
 }
 .weather-list-small{
     position: relative;

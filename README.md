@@ -1,5 +1,6 @@
 # Weather-Dashboard
 
+
 Task Description:
 This task required me to create a weather dashboard utilising API's in order to retrieve weather data and show it on the screen.
 
