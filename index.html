@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <header class="header">
+        <h2 class="heading">Weather Dashboard</h2>
+    </header>
+    
+    
+    <section>
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <h3 class="card-header text-uppercase">Search By City</h3>
+            <form id="user-form" class="card-body">
+              <label class="form-label" for="city">City Name</label>
+              <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn">Search</button>
+            </form>
+          </div>
+
+          <div class="previousSearch">
+            <ul class="searchList">
+                <a class="previousCity">
+                    <!-- <li class="list">previous search</li> -->
+                </a>
+            </ul>
+          </div>
+        </div>
+    </section>
+
+    <main class="main-container" id="hidden">
+        <div class="main-weather">
+            <h3 class="weather-heading">City/Date</h3>
+            <div class="bigImageDiv">
+                <img class="bigImage" src="Images/Sunny.png" alt="sunny">
+            </div>
+            <ul class="weather-list">
+                <li class="weather-descriptionBig" id="tempBig">Temp: </li>
+                <li class="weather-descriptionBig" id="windBig">Wind: </li>
+                <li class="weather-descriptionBig" id="humidityBig">Humidity: </li>
+                <li class="weather-descriptionBig" id="uviBig">UV Index: </li>
+            </ul>
+        </div>
+        <div class="five-container">
+            <h2 class="five-heading">Five Day Forecast</h2>
+            <div class="five-day-forecast">
+                <div class="weather-box">
+                    <h3 class="date">Date</h3>
+                    <div class="imageDiv">
+                        <img class="smallImage" id="img1" src="Images/Sunny.png" alt="sunny">
+                    </div>
+                    <ul class="weather-list-small" id='1'>
+                    
+                    </ul>
+                </div>
+                <div class="weather-box">
+                    <h3 class="date">Date</h3>
+                    <div class="imageDiv">
+                        <img class="smallImage" id="img2"src="Images/Sunny.png" alt="sunny">
+                    </div>
+                    <ul class="weather-list-small" id='2'>
+                        
+                    </ul>
+                </div>
+                <div class="weather-box">
+                    <h3 class="date">Date</h3>
+                    <div class="imageDiv">
+                        <img class="smallImage" id="img3" src="Images/Sunny.png" alt="sunny">
+                    </div>
+                    <ul class="weather-list-small" id='3'>
+                        
+                    </ul>
+                </div>
+                <div class="weather-box">
+                    <h3 class="date">Date</h3>
+                    <div class="imageDiv">
+                        <img class="smallImage" id="img4" src="Images/Sunny.png" alt="sunny">
+                    </div>
+                    <ul class="weather-list-small" id='4'>
+                        
+                    </ul>
+                </div>
+                <div class="weather-box">
+                    <h3 class="date">Date</h3>
+                    <div class="imageDiv">
+                        <img class="smallImage" id="img5" src="Images/Sunny.png" alt="sunny">
+                    </div>
+                    <ul class="weather-list-small" id='5'>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <a href='https://pngtree.com/so/weather-icons'>weather icons png from pngtree.com</a>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
